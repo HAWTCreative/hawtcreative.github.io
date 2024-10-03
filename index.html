@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Aurora Animation</title>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+            font-family: "Noto Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+            box-sizing: border-box;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+
+        /* Circle positioned above the aurora */
+        .circle {
+            width: 14rem;
+            height: 14rem;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.8) 0px 10rem 16rem 4rem inset, rgba(0, 0, 0, 0.4) 0px 10rem 16rem 8rem inset;
+            border: .1rem solid rgba(0, 0, 0, 1);
+        }
+
+        .circle1 {
+            width: 18.5rem;
+            height: 18.5rem;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 1rem 10rem 8rem inset;
+            border: .025rem solid rgba(0, 0, 0, 0.7);
+
+        }
+
+        .circle2 {
+            width: 16rem;
+            height: 16rem;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 1rem 10rem 8rem inset;
+            border: .025rem solid rgba(0, 0, 0, 0.7);
+
+        }
+
+        /* Masked text within the circle */
+        .circle h1 {
+            font-size: 3.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 2;
+            font-weight: 100;
+            letter-spacing: .6rem;
+        }
+
+        /* Shared styling for all auroras */
+        .aurora {
+            width: 21rem;
+            height: 21rem;
+            border-radius: 50%;
+            position: absolute;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 20%, rgba(0, 100, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+            animation: auroraAnimation 15s infinite alternate cubic-bezier(0.42, 0, 0.58, 1);
+            opacity: 0.8;
+        }
+
+        /* Keyframe animation with gradient shifts and no hard edge */
+        @keyframes auroraAnimation {
+            0% {
+                transform: scale(1.1) translate(-5%, -5%);
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 20%, rgba(0, 100, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            15% {
+                transform: scale(1.1) translate(5%, -5%);
+                background: radial-gradient(circle, rgba(0, 255, 100, 0.5) 20%, rgba(50, 50, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            30% {
+                transform: scale(1.1) translate(0%, 5%);
+                background: radial-gradient(circle, rgba(218, 244, 25, 0.6) 20%, rgba(100, 0, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            45% {
+                transform: scale(1.1) translate(-5%, -5%);
+                background: radial-gradient(circle, rgba(255, 100, 255, 0.5) 20%, rgba(50, 150, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            60% {
+                transform: scale(1.1) translate(-5%, 5%);
+                background: radial-gradient(circle, rgba(50, 255, 150, 0.5) 20%, rgba(100, 50, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            75% {
+                transform: scale(1.1) translate(5%, 5%);
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 20%, rgba(0, 150, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            100% {
+                transform: scale(1.1) translate(-5%, -5%);
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 20%, rgba(0, 100, 255, 0) 50%, rgba(0, 0, 0, 0) 100%);
+            }
+        }
+
+        /* Custom animations for each aurora */
+        .aurora:nth-child(1) {
+            animation-duration: 18s;
+            /* Slower animation for this layer */
+            animation-delay: 0s;
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(2) {
+            animation-duration: 20s;
+            /* Slower animation for this layer */
+            animation-delay: -2s;
+            opacity: 0.4;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(3) {
+            animation-duration: 16s;
+            animation-delay: -1.5s;
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(4) {
+            animation-duration: 20s;
+            /* Slower animation for this layer */
+            animation-delay: -3s;
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(5) {
+            animation-duration: 17s;
+            animation-delay: -1s;
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(6) {
+            animation-duration: 15s;
+            /* Slower animation for this layer */
+            animation-delay: -2s;
+            opacity: 0.3;
+            transform: scale(1.1);
+        }
+
+        .aurora:nth-child(7) {
+            animation-duration: 19s;
+            animation-delay: -1.8s;
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Circle with Masked Text -->
+    <div class="circle">
+        <h1>HAWT</h1>
+    </div>
+    <div class="circle1">
+    </div>
+    <div class="circle2">
+    </div>
+    <!-- Multiple aurora elements for enhanced effect -->
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+    <div class="aurora"></div>
+</body>
+
+</html>
